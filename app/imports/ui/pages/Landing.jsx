@@ -8,25 +8,12 @@ const Landing = () => (
 
       <Col md={6}>
         <h1>Welcome to Opportunity Finder</h1>
-        <h3>Now get to work and find your future!</h3>
+        <h3>A bright future awaits!</h3>
       </Col>
 
     </Row>
 
-  <Row className="py-5">
-    <Col xs={4}>
-      <Image roundedCircle src="/images/OP1.png" width="150px" />
-    </Col>
 
-    <Col xs={4} className="d-flex flex-column justify-content-center">
-      <h1>Welcome to Opportunity Finder</h1>
-      <h3>Now get to work and find your future!</h3>
-    </Col>
-
-    <Col xs={4}>
-      <Image roundedCircle src="/images/OP1.png" width="150px" />
-    </Col>
-  </Row>
 
 
   </Container>

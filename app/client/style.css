@@ -45,3 +45,22 @@ footer, footer a {
 .margin-change {
   margin-left: 250px;
 }
+
+.custom-btn {
+  width: 350px; /* or whatever fixed width you want */
+  height: 60px; /* or whatever fixed height you want */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-color {
+  background-color: #9d826e !important ; /* Your custom color */
+}
+
+/* CSS classes for Footer jsx changing text color to black */
+.footer-text-color {
+  color: #000000;
+}
+
+
