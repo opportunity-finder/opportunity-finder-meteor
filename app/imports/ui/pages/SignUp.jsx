@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, TextField } from 'uniforms-bootstrap5';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -17,6 +17,10 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    firstName: String,
+    lastName: String,
+    isStudent: Boolean,
+    isEmployer: Boolean,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -44,19 +48,37 @@ const SignUp = ({ location }) => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2>Register your account</h2>
+            <h2>Sign Up</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
+                <Row className="mb-1">
+                  <Col>
+                    <TextField name="firstName" placeholder="First Name" />
+                  </Col>
+                  <Col>
+                    <TextField name="lastName" placeholder="Last Name" />
+                  </Col>
+                </Row>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <Row className="mb-3">
+                  <Col>
+                    <input type="checkbox" name="isStudent" /> I am a Student
+                  </Col>
+                  <Col>
+                    <input type="checkbox" name="isEmployer" /> I am a Employer
+                  </Col>
+                </Row>
                 <ErrorsField />
-                <SubmitField />
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">Sign Up</button>
+                </div>
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
+          <Alert variant="light" className="text-center">
             Already have an account? Login
             {' '}
             <Link to="/signin">here</Link>
