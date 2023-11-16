@@ -33,9 +33,9 @@ const NavBar = () => {
           </Nav>
 
           <Nav className="justify-content-end">
-            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link id="home-nav" as={NavLink} to="/" key="home">Home</Nav.Link>,
             <Nav.Link href="#">Company</Nav.Link>
-            <Nav.Link href="#">Student</Nav.Link>
+            <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
             <Nav.Link href="#">Profile</Nav.Link>
             <Nav.Link href="#">About Us</Nav.Link>
             {currentUser === '' ? (
