@@ -13,8 +13,8 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar >
-      <Image roundedCircle src="/images/OP1.png" width="150px" className="ms-5"/>
+    <Navbar>
+      <Image roundedCircle src="/images/OP1.png" width="150px" className="ms-5" />
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="margin-change">
           <h2>Opportunity Finder</h2>
