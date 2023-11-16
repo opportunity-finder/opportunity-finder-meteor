@@ -7,8 +7,8 @@ const Landing = () => (
     <Row className="justify-content-md-center text-center">
 
       <Col md={6}>
-        <h1>Welcome to Opportunity Finder</h1>
-        <h3>A bright future awaits!</h3>
+        <h1 className="text-white">Welcome to Opportunity Finder</h1>
+        <h3 className="text-white">A bright future awaits!</h3>
       </Col>
 
     </Row>
