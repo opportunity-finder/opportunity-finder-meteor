@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
@@ -16,12 +16,11 @@ const Footer = () => (
 
       <Row className="py-5">
         <Col xs={4}>
-          <button type="button" className="btn  btn-lg custom-btn custom-color" >Part time/Full time employment</button>
+          <button type="button" className="btn  btn-lg custom-btn custom-color">Part time/Full time employment</button>
         </Col>
 
-        <Col xs={4} >
+        <Col xs={4}>
           <button type="button" className="btn  btn-lg custom-btn custom-color">Internships</button>
-
 
         </Col>
 
