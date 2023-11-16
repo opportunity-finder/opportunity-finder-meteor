@@ -17,6 +17,10 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    firstName: String,
+    lastName: String,
+    isStudent: Boolean,
+    isEmployer: Boolean,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -49,15 +53,32 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-
+                <Row className="mb-1">
+                  <Col>
+                    <TextField name="firstName" placeholder="First Name" />
+                  </Col>
+                  <Col>
+                    <TextField name="lastName" placeholder="Last Name" />
+                  </Col>
+                </Row>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <Row className="mb-3">
+                  <Col>
+                    <input type="checkbox" name="isStudent" /> I am a Student
+                  </Col>
+                  <Col>
+                    <input type="checkbox" name="isEmployer" /> I am a Employer
+                  </Col>
+                </Row>
                 <ErrorsField />
-                <SubmitField />
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">Sign Up</button>
+                </div>
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
+          <Alert variant="light" className="text-center">
             Already have an account? Login
             {' '}
             <Link to="/signin">here</Link>
