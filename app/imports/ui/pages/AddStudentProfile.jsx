@@ -17,12 +17,10 @@ const formSchema = new SimpleSchema({
     type: String,
     allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
       'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu'],
-    defaultValue: 'UH Mānoa',
   },
   major: String,
   minor: String,
-  isGraduate: Boolean,
-  owner: String,
+  isGraduate: { type: Boolean, optional: true, defaultValue: false },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -32,8 +30,8 @@ const AddStudentProfile = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, studentID, campus, major, minor, isGraduate } = data;
     const owner = Meteor.user().username;
+    const { firstName, lastName, studentID, campus, major, minor, isGraduate = false } = data;
     StudentProfiles.collection.insert(
       { firstName, lastName, studentID, campus, major, minor, isGraduate, owner },
       (error) => {
@@ -53,17 +51,17 @@ const AddStudentProfile = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Stuff</h2></Col>
+          <Col className="text-center"><h2>Add Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <TextField name="firstName" />
                 <TextField name="lastName" />
                 <NumField name="studentID" decimal={null} />
-                <SelectField name="campus" />
+                <SelectField name="campus" allowedValues={['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC', 'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu']} />
                 <TextField name="major" />
                 <TextField name="minor" />
-                <BoolField name="isGraduate" transform={(value) => (value ? 'Yes' : 'No')} />
+                <BoolField name="isGraduate" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
