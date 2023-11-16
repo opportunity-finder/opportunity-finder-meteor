@@ -5,30 +5,37 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { StudentProfiles } from '../../api/profile/StudentProfile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  condition: {
+  firstName: String,
+  lastName: String,
+  studentID: Number,
+  campus: String,
+  campusCondition: {
     type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+    allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
+      'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu'],
+    defaultValue: 'UH Mānoa',
   },
+  major: String,
+  minor: String,
+  isGraduate: Boolean,
+  owner: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
-const AddStuff = () => {
+const AddStudentProfile = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition } = data;
+    const { firstName, lastName, studentID, campus, major, minor, isGraduate } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert(
-      { name, quantity, condition, owner },
+    StudentProfiles.collection.insert(
+      { firstName, lastName, studentID, campus, major, minor, isGraduate, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -50,9 +57,12 @@ const AddStuff = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
+                <TextField name="firstName" />
+                <TextField name="lastName" />
+                <NumField name="studentID" decimal={null} />
+                <SelectField name="campus" />
+                <TextField name="major" />
+                <TextField name="minor" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
@@ -64,4 +74,4 @@ const AddStuff = () => {
   );
 };
 
-export default AddStuff;
+export default AddStudentProfile;

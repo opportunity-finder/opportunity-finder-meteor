@@ -14,6 +14,7 @@ class StudentProfilesCollection {
     this.schema = new SimpleSchema({
       firstName: String,
       lastName: String,
+      studentID: Number,
       campus: String,
       campusCondition: {
         type: String,
@@ -24,6 +25,7 @@ class StudentProfilesCollection {
       major: String,
       minor: String,
       isGraduate: Boolean,
+      owner: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -35,6 +37,6 @@ class StudentProfilesCollection {
 
 /**
  * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * @type {StudentProfilesCollection}
  */
 export const StudentProfiles = new StudentProfilesCollection();
