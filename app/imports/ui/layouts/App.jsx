@@ -17,6 +17,7 @@ import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import StudentPage from '../pages/StudentPage';
 import CompanyPage from '../pages/CompanyPage';
+import AddStudentProfile from '../pages/AddStudentProfile';
 import AboutUs from '../pages/AboutUs';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/studentpage" element={<StudentPage />} />
           <Route path="/companypage" element={<CompanyPage />} />
+          <Route path="/addstudentprofile" element={<AddStudentProfile />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
