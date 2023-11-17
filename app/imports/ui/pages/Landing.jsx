@@ -1,21 +1,19 @@
 import React from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
-
+import { Col, Row } from 'react-bootstrap';
+import Footer from '../components/Footer';
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
-  <Container id="landing-page" fluid className="py-3">
-    <Row className="align-middle text-center">
-      <Col xs={4}>
-        <Image roundedCircle src="/images/meteor-logo.png" width="150px" />
-      </Col>
+  <div className="d-flex flex-column min-vh-100">
+    <Row className="justify-content-md-center text-center">
 
-      <Col xs={8} className="d-flex flex-column justify-content-center">
-        <h1>Welcome to this template</h1>
-        <p>Now get to work and modify this app!</p>
+      <Col md={6}>
+        <h1 className="text-white">Welcome to Opportunity Finder</h1>
+        <h3 className="text-white">A bright future awaits!</h3>
       </Col>
 
     </Row>
-  </Container>
+    <Footer className="fixed-bottom" />
+  </div>
 );
 
 export default Landing;
