@@ -63,4 +63,24 @@ footer, footer a {
   color: #000000;
 }
 
+html, body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use viewport height to ensure full height */
+  margin: 0; /* Reset default margin */
+}
+
+/* Assuming #root is the div id of the main React root element */
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* This will allow the content to expand and push the footer down */
+  padding: 0;
+}
+
+/* Add the following to your footer CSS to ensure it sticks at the bottom */
+footer {
+  margin-top: auto; /* This will automatically push the footer to the bottom */
+}
+
 
