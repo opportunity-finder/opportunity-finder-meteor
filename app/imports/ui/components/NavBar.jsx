@@ -37,7 +37,7 @@ const NavBar = () => {
             <Nav.Link href="#">Company</Nav.Link>
             <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
             <Nav.Link href="#">Profile</Nav.Link>
-            <Nav.Link href="#">About Us</Nav.Link>
+            <Nav.Link id="aboutus-nav" as={NavLink} to="/aboutus" key="sp">About Us</Nav.Link>,
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
