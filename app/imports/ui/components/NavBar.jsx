@@ -16,9 +16,7 @@ const NavBar = () => {
     <Navbar>
       <Image roundedCircle src="/images/OP1.png" width="150px" className="ms-5" />
       <Container>
-        <Navbar.Brand as={NavLink} to="/" className="margin-change">
-          <h2>Opportunity Finder</h2>
-        </Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/" className="margin-change" />
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -34,10 +32,10 @@ const NavBar = () => {
 
           <Nav className="justify-content-end">
             <Nav.Link id="home-nav" as={NavLink} to="/" key="home">Home</Nav.Link>,
-            <Nav.Link href="#">Company</Nav.Link>
+            <Nav.Link id="student-nav" as={NavLink} to="/companypage" key="sp">Company</Nav.Link>,
             <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
             <Nav.Link href="#">Profile</Nav.Link>
-            <Nav.Link href="#">About Us</Nav.Link>
+            <Nav.Link id="student-nav" as={NavLink} to="/aboutus" key="sp">About Us</Nav.Link>,
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
