@@ -7,8 +7,8 @@ const Footer = () => (
     <Container>
       <Row>
 
-        <Col className="d-flex flex-column justify-content-center align-items-center">
-          <h1 className="text-center footer-text-color">Get Started</h1>
+        <Col md={10} className="d-flex flex-column justify-content-center align-items-center">
+          <h1 className="text-center footer-text-color">Get Start</h1>
           <p className="text-center footer-text-color">Not sure where to stare? Here are some popular pages that may help you find what you are looking for!</p>
         </Col>
 
