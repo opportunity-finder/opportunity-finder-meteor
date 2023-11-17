@@ -17,13 +17,13 @@ const AboutUs = () => (
           <div className="card-img-overlay">
 
             <h5 className="text-center">Who We Are</h5>
-            {/* eslint-disable-next-line max-len */}
+            {/* eslint-disable-next-line max-len,react/no-unescaped-entities */}
             <p className="card-text">Welcome to Opportunity Finder, the innovative platform bridging the gap between ambitious students and forward-thinking companies. Born from the desire to streamline the connection process, our web application serves as a dynamic nexus for University of Hawaii's computer science and engineering talents and the companies eager to harness their potential.</p>
 
             <h5 className="text-center">What We Do</h5>
             <p className="card-text">At Opportunity Finder, we revolutionize how students and employers discover each other:
               <ul>
-                {/* eslint-disable-next-line max-len */}
+                {/* eslint-disable-next-line max-len,react/no-unescaped-entities */}
                 <li><strong>For Students:</strong> Create a profile showcasing your skills, interests, and professional aspirations. Browse through a myriad of opportunities, tailor-made to align with your career goals. Whether you're seeking an internship or a full-time position, our platform brings the opportunities to your fingertips.</li>
                 {/* eslint-disable-next-line max-len */}
                 <li><strong>For Companies:</strong> Say goodbye to the traditional recruitment hurdles. Our platform allows you to create a comprehensive company profile, highlighting your mission, location, and the roles you frequently recruit for. Share details about internships, permanent positions, desired skills, hiring numbers, and salary ranges. Reach out directly to the talent that resonates with your company’s vision.</li>
