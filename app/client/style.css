@@ -82,13 +82,3 @@ html, body {
 footer {
   margin-top: auto; /* This will automatically push the footer to the bottom */
 }
-
-.no-side-padding {  /* This will remove padding in AboutUS Card */
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-
-}
-
-
