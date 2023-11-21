@@ -12,8 +12,7 @@ const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   studentID: Number,
-  campus: String,
-  campusCondition: {
+  campus: {
     type: String,
     allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
       'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu'],
