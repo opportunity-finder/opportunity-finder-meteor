@@ -12,7 +12,12 @@ const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   studentID: Number,
+<<<<<<< HEAD
   campus: {
+=======
+  campus: String,
+  campusCondition: {
+>>>>>>> origin/main
     type: String,
     allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
       'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu'],
@@ -50,7 +55,11 @@ const AddStudentProfile = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
+<<<<<<< HEAD
           <Col className="text-center"><h2>Add Student Profile</h2></Col>
+=======
+          <Col className="text-center"><h2 className="text-white">Add Profile</h2></Col>
+>>>>>>> origin/main
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
