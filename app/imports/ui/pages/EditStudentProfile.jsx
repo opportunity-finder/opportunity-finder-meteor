@@ -5,14 +5,30 @@ import { AutoForm, BoolField, ErrorsField, NumField, SelectField, SubmitField, T
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import SimpleSchema from 'simpl-schema';
 import { useParams } from 'react-router';
 import { StudentProfiles } from '../../api/profile/StudentProfile';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-const bridge = new SimpleSchema2Bridge(StudentProfiles.schema);
+// Create a schema to specify the structure of the data to appear in the form.
+const formSchema = new SimpleSchema({
+  firstName: String,
+  lastName: String,
+  studentID: Number,
+  campus: {
+    type: String,
+    allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
+      'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu'],
+  },
+  major: String,
+  minor: String,
+  isGraduate: { type: Boolean, optional: true, defaultValue: false },
+});
+
+const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the EditStuff page for editing a single document. */
-const EditStuff = () => {
+const EditStudentProfile = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
   // console.log('EditStuff', _id);
@@ -33,7 +49,7 @@ const EditStuff = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const owner = Meteor.user().username;
-    const { firstName, lastName, studentID, campus, major, minor, isGraduate = false} = data;
+    const { firstName, lastName, studentID, campus, major, minor, isGraduate = false } = data;
     StudentProfiles.collection.update(_id, { $set: { firstName, lastName, studentID, campus, major, minor, isGraduate, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
@@ -53,7 +69,7 @@ const EditStuff = () => {
                 <SelectField name="campus" allowedValues={['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC', 'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu']} />
                 <TextField name="major" />
                 <TextField name="minor" />
-                <BoolField name="isGraduate" />
+                <BoolField name="isGraduate" transform={value => value || false} />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
@@ -65,4 +81,4 @@ const EditStuff = () => {
   ) : <LoadingSpinner />;
 };
 
-export default EditStuff;
+export default EditStudentProfile;
