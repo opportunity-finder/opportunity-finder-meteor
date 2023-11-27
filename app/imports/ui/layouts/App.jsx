@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import AdminSearch from '../pages/AdminSearch';
 
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/companypage" element={<CompanyPage />} />
           <Route path="/addstudentprofile" element={<AddStudentProfile />} />
           <Route path="/editstudentprofile" element={<EditStudentProfile />} />
+          <Route path="/adminsearch" element={<ProtectedRoute><AdminSearch /></ProtectedRoute>} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />

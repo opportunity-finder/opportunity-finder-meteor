@@ -32,11 +32,15 @@ const NavBar = () => {
 
           <Nav className="justify-content-end">
             <Nav.Link id="home-nav" as={NavLink} to="/" key="home">Home</Nav.Link>,
-            {currentUser ? ([
-              <Nav.Link id="student-nav" as={NavLink} to="/companypage" key="cp">Company</Nav.Link>,
-              <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
-              <Nav.Link id="student-nav" as={NavLink} to="/addstudentprofile" key="asp">My Profile</Nav.Link>,
-            ]) : ''}
+            {currentUser ? (
+              <>
+                <Nav.Link id="student-nav" as={NavLink} to="/companypage" key="cp">Company</Nav.Link>
+                <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>
+                <Nav.Link id="student-nav" as={NavLink} to="/addstudentprofile" key="asp">My Profile</Nav.Link>
+                <Nav.Link id="search-nav" as={NavLink} to="/adminsearch" key="search">Search</Nav.Link>
+              </>
+            ) : ''}
+
             <Nav.Link id="student-nav" as={NavLink} to="/aboutus" key="au">About Us</Nav.Link>,
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
