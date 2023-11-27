@@ -36,7 +36,7 @@ const AdminSearch = () => {
                       <option value="firstName">First Name</option>
                       <option value="lastName">Last Name</option>
                       <option value="studentID">Student ID</option>
-                      // Add more options as needed
+
                     </Form.Select>
                   </Col>
                 </Form.Group>
