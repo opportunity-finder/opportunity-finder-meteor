@@ -17,7 +17,8 @@ class SigninPage {
     await this.isDisplayed(testController);
     await testController.typeText('#signin-form-email', username);
     await testController.typeText('#signin-form-password', password);
-    await testController.click('#signin-form-submit input.btn.btn-primary');
+    // Update this line to use the correct selector
+    await testController.click(Selector('div.d-grid button.btn.btn-primary'));
     await navBar.isLoggedIn(testController, username);
   }
 }
