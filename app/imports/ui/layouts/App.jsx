@@ -21,6 +21,7 @@ import AddStudentProfile from '../pages/AddStudentProfile';
 import AboutUs from '../pages/AboutUs';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
+import AddCompany from '../pages/AddCompany';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
