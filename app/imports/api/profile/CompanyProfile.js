@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The StudentProfilesCollection. It encapsulates state and variable values for StudentProfiles.
+ * The CompnayProfilesCollection. It encapsulates state and variable values for CompanyProfiles.
  */
 class CompanyProfilesCollection {
   constructor() {
