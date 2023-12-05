@@ -21,9 +21,13 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
-            {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Student Profile</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">Edit Student Profile</Nav.Link>,
+            {Roles.userIsInRole(Meteor.userId(), 'student') ? ([
+              <Nav.Link id="add-stuff-nav" as={NavLink} to="/addstudentprofile" key="add">Add Student Profile</Nav.Link>,
+              <Nav.Link id="edit-stuff-nav" as={NavLink} to="/editstudentprofile" key="list">Edit Student Profile</Nav.Link>,
+            ]) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'employer') ? ([
+              <Nav.Link id="add-stuff-nav" as={NavLink} to="/addstudentprofile" key="add">Add Company Profile</Nav.Link>,
+              <Nav.Link id="edit-stuff-nav" as={NavLink} to="/editstudentprofile" key="list">Edit Company Profile</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
@@ -32,9 +36,20 @@ const NavBar = () => {
 
           <Nav className="justify-content-end">
             <Nav.Link id="home-nav" as={NavLink} to="/" key="home">Home</Nav.Link>,
-            <Nav.Link id="student-nav" as={NavLink} to="/companypage" key="cp">Company</Nav.Link>,
-            <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
-            <Nav.Link id="student-nav" as={NavLink} to="/addstudentprofile" key="asp">Profile</Nav.Link>,
+            {currentUser ? (
+              <>
+                <Nav.Link id="student-nav" as={NavLink} to="/addstudentprofile" key="asp">My Profile</Nav.Link>
+                <Nav.Link id="search-nav" as={NavLink} to="/adminsearch" key="search">Search</Nav.Link>
+              </>
+            ) : ''}
+
+            {Roles.userIsInRole(Meteor.userId(), 'student') ? ([
+              <Nav.Link id="student-nav" as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
+            ]) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'employer') ? ([
+              <Nav.Link id="student-nav" as={NavLink} to="/companypage" key="cp">Company</Nav.Link>,
+            ]) : ''}
+
             <Nav.Link id="student-nav" as={NavLink} to="/aboutus" key="au">About Us</Nav.Link>,
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">

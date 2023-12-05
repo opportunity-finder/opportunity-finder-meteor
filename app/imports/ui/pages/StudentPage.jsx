@@ -17,7 +17,7 @@ const StudentPage = () => (
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
         <div className="button ld ld-ext-left">
-          <a href="http://google.com">
+          <a href="https://opportunityfinder.xyz/addstudentprofile">
             <div className="ld ld-ring ld-spin" />
             <h5 style={{ color: 'white' }}>Add Profile</h5>
             <div />
@@ -33,7 +33,7 @@ const StudentPage = () => (
         <link rel="stylesheet" type="text/css" href="//loading.io/css/loading-btn.css" />
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <div className="button ld ld-ext-left">
-          <a href="http://google.com">
+          <a href="https://opportunityfinder.xyz/editstudentprofile">
             <div className="ld ld-ring ld-spin" />
             <h5 style={{ color: 'white' }}>Edit Profile</h5>
             <div />

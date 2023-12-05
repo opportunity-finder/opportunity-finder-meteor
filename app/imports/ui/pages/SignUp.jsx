@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
+// eslint-disable-next-line no-unused-vars
+import { Roles } from 'meteor/alanning:roles';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -19,15 +21,14 @@ const SignUp = ({ location }) => {
     password: String,
     firstName: String,
     lastName: String,
-    isStudent: Boolean,
-    isEmployer: Boolean,
+    role: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, firstName, lastName, role } = doc;
+    Accounts.createUser({ username: email, password: password, firstName: firstName, lastName: lastName, role: role }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -36,7 +37,6 @@ const SignUp = ({ location }) => {
       }
     });
   };
-
   /* Display the signup form. Redirect to add page after successful registration and login. */
   const { from } = location?.state || { from: { pathname: '/studentpage' } };
   // if correct authentication, redirect to from: page instead of signup screen
@@ -48,8 +48,7 @@ const SignUp = ({ location }) => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2 className="text-white">Sign Up</h2>
-            <h2>Sign Up</h2>
+            <h2 className="text-white"> Sign Up </h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
@@ -65,12 +64,11 @@ const SignUp = ({ location }) => {
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <Row className="mb-3">
+
                   <Col>
-                    <input type="checkbox" name="isStudent" /> I am a Student
+                    <TextField name="role" label="Are you a Student or Employer?" placeholder="Type student or employer" />
                   </Col>
-                  <Col>
-                    <input type="checkbox" name="isEmployer" /> I am a Employer
-                  </Col>
+
                 </Row>
                 <ErrorsField />
                 <div className="d-grid">
