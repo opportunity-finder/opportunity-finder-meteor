@@ -2,12 +2,12 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The StudentProfilesCollection. It encapsulates state and variable values for StudentProfiles.
+ * The CompanyProfilesCollection. It encapsulates state and variable values for StudentProfiles.
  */
 class CompanyProfilesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StudentProfilesCollection';
+    this.name = 'CompanyProfilesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.

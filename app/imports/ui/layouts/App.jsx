@@ -4,11 +4,12 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStudentProfile from '../pages/AddStudentProfile';
+import AddCompanyProfile from '../pages/AddCompanyProfile';
+import EditCompanyProfile from '../pages/EditCompanyProfile';
 import EditStudentProfile from '../pages/EditStudentProfile';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
@@ -41,6 +42,9 @@ const App = () => {
           <Route path="/studentpage" element={<StudentPage />} />
           <Route path="/companypage" element={<CompanyPage />} />
           <Route path="/addstudentprofile" element={<AddStudentProfile />} />
+          <Route path="/addcompanyprofile" element={<AddCompanyProfile />} />
+          <Route path="/editstudentprofile" element={<EditStudentProfile />} />
+          <Route path="/editcompanyprofile" element={<EditCompanyProfile />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />

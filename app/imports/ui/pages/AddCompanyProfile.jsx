@@ -48,7 +48,7 @@ const AddCompanyProfile = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Student Profile</h2></Col>
+          <Col className="text-center"><h2>Add Company Profile</h2></Col>
           <Col className="text-center"><h2 className="text-white">Add Profile</h2></Col>
 
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
