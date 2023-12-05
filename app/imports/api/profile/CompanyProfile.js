@@ -33,6 +33,6 @@ class CompanyProfilesCollection {
 
 /**
  * The singleton instance of the StuffsCollection.
- * @type {StudentProfilesCollection}
+ * @type {CompanyProfilesCollection}
  */
 export const CompanyProfiles = new CompanyProfilesCollection();
