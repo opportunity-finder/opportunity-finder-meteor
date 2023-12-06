@@ -15,6 +15,7 @@
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
   background: fixed center url("/images/Lading3.jpg");
+  margin-top: 0;
 }
 
 body .navbar {
@@ -23,6 +24,10 @@ body .navbar {
   --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
+
+  background-color: transparent !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -103,3 +108,4 @@ footer, footer a {
 .button > .ld {
   font-size: initial
 }
+

@@ -15,16 +15,16 @@ const Footer = () => (
       </Row>
 
       <Row className="py-5">
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <button type="button" className="btn  btn-lg custom-btn custom-color">Part time/Full time employment</button>
         </Col>
 
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <button type="button" className="btn  btn-lg custom-btn custom-color">Internships</button>
 
         </Col>
 
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <button type="button" className="btn  btn-lg custom-btn custom-color ">Apprenticeships</button>
         </Col>
       </Row>
