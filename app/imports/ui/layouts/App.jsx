@@ -22,6 +22,7 @@ import AboutUs from '../pages/AboutUs';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import AddCompanyProfile from '../pages/AddCompanyProfile';
+import EditCompanyProfile from '../pages/EditCompanyProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -45,6 +46,8 @@ const App = () => {
           <Route path="/addstudentprofile" element={<ProtectedRoute><AddStudentProfile /></ProtectedRoute>} />
           <Route path="/editstudentprofile" element={<ProtectedRoute><EditStudentProfile /></ProtectedRoute>} />
           <Route path="/addcompanyprofile" element={<ProtectedRoute><AddCompanyProfile /></ProtectedRoute>} />
+          <Route path="/editcompanyprofile" element={<ProtectedRoute><EditCompanyProfile /></ProtectedRoute>} />
+
           <Route path="/adminsearch" element={<ProtectedRoute><AdminSearch /></ProtectedRoute>} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />

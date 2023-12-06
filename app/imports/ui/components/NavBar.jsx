@@ -29,7 +29,7 @@ const NavBar = () => {
             {Roles.userIsInRole(Meteor.userId(), 'employer') && ([
 
               <Nav.Link as={NavLink} to="/addcompanyprofile" key="add-company">Add Company Profile</Nav.Link>,
-              <Nav.Link as={NavLink} to="/editstudentprofile" key="list">Edit Company Profile</Nav.Link>,
+              <Nav.Link as={NavLink} to="/editcompanyprofile" key="edit-company">Edit Company Profile</Nav.Link>,
 
             ])}
             {Roles.userIsInRole(Meteor.userId(), 'admin') && (
