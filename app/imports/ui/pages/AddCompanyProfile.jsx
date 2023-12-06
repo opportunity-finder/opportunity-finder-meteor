@@ -48,8 +48,9 @@ const AddCompanyProfile = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Company Profile</h2></Col>
-          <Col className="text-center"><h2 className="text-white">Add Profile</h2></Col>
+          <Col className="text-center"><h2 className="text-white">Add Company Profile</h2></Col>
+          {/* eslint-disable-next-line jsx-a11y/heading-has-content */}
+          <Col className="text-center"><h2 className="text-white" /></Col> {/* bot sure if we need this */}
 
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
