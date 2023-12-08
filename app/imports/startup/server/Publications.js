@@ -8,13 +8,13 @@ import { CompanyProfiles } from '../../api/profile/CompanyProfile';
 Meteor.startup(() => {
   // Create users if they don't already exist
   const users = [
-    { email: "admin@foo.com", password: "changeme", role: "admin" },
-    { email: "john@foo.com", password: "changeme", role: "student" },
-    { email: "ethan@foo.com", password: "changeme", role: "employer" },
+    { email: 'admin@foo.com', password: 'changeme', role: 'admin' },
+    { email: 'john@foo.com', password: 'changeme', role: 'student' },
+    { email: 'ethan@foo.com', password: 'changeme', role: 'employer' },
   ];
 
   users.forEach(({ email, password, role }) => {
-    let user = Accounts.findUserByEmail(email);
+    const user = Accounts.findUserByEmail(email);
     if (!user) {
       const userId = Accounts.createUser({ email, username: email, password });
       if (role) {
