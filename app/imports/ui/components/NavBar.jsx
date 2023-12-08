@@ -41,16 +41,17 @@ const NavBar = () => {
             <Nav.Link as={NavLink} to="/" key="home">Home</Nav.Link>
             {currentUser && (
               <>
-                <Nav.Link as={NavLink} to="/addstudentprofile" key="asp">My Profile</Nav.Link>
+                <Nav.Link as={NavLink} to="/mysprofile" key="asp">My Profile</Nav.Link>
                 <Nav.Link as={NavLink} to="/adminsearch" key="search">Search</Nav.Link>
               </>
             )}
             {Roles.userIsInRole(Meteor.userId(), 'student') && (
               <Nav.Link as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>
             )}
-            {Roles.userIsInRole(Meteor.userId(), 'employer') && (
-              <Nav.Link as={NavLink} to="/companypage" key="cp">Company</Nav.Link>
-            )}
+            {Roles.userIsInRole(Meteor.userId(), 'employer') && ([
+              <Nav.Link as={NavLink} to="/liststudent" key="ls">List Student</Nav.Link>,
+              <Nav.Link as={NavLink} to="/companypage" key="cp">Company</Nav.Link>,
+            ])}
 
             <Nav.Link as={NavLink} to="/aboutus" key="au">About Us</Nav.Link>
             {currentUser === '' ? (

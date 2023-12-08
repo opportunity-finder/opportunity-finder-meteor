@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { useParams } from 'react-router';
 import { StudentProfiles } from '../../api/profile/StudentProfile';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -15,6 +14,7 @@ const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   studentID: Number,
+  image: String,
   campus: {
     type: String,
     allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
@@ -30,7 +30,7 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /* Renders the EditStuff page for editing a single document. */
 const EditStudentProfile = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { _id } = useParams();
+  const _id = Meteor.user().username;
   // console.log('EditStuff', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
@@ -39,7 +39,7 @@ const EditStudentProfile = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = StudentProfiles.collection.findOne(_id);
+    const document = StudentProfiles.collection.findOne({ owner: _id });
     return {
       doc: document,
       ready: rdy,
@@ -49,8 +49,8 @@ const EditStudentProfile = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const owner = Meteor.user().username;
-    const { firstName, lastName, studentID, campus, major, minor, isGraduate = false } = data;
-    StudentProfiles.collection.update(_id, { $set: { firstName, lastName, studentID, campus, major, minor, isGraduate, owner } }, (error) => (error ?
+    const { firstName, lastName, studentID, image, campus, major, minor, isGraduate = false } = data;
+    StudentProfiles.collection.update(_id, { $set: { firstName, lastName, studentID, image, campus, major, minor, isGraduate, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -66,6 +66,7 @@ const EditStudentProfile = () => {
                 <TextField name="firstName" />
                 <TextField name="lastName" />
                 <NumField name="studentID" decimal={null} />
+                <TextField name="image" />
                 <SelectField name="campus" allowedValues={['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC', 'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu']} />
                 <TextField name="major" />
                 <TextField name="minor" />

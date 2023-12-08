@@ -12,6 +12,7 @@ const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   studentID: Number,
+  image: String,
   campus: {
     type: String,
     allowedValues: ['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC',
@@ -30,9 +31,9 @@ const AddStudentProfile = () => {
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const owner = Meteor.user().username;
-    const { firstName, lastName, studentID, campus, major, minor, isGraduate = false } = data;
+    const { firstName, lastName, image, studentID, campus, major, minor, isGraduate = false } = data;
     StudentProfiles.collection.insert(
-      { firstName, lastName, studentID, campus, major, minor, isGraduate, owner },
+      { firstName, lastName, image, studentID, campus, major, minor, isGraduate, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -58,6 +59,7 @@ const AddStudentProfile = () => {
                 <TextField name="firstName" />
                 <TextField name="lastName" />
                 <NumField name="studentID" decimal={null} />
+                <TextField name="image" />
                 <SelectField name="campus" allowedValues={['Hawai‘i CC', 'Honolulu CC', 'Kapiolani CC', 'Kauai CC', 'Leeward CC', 'Windward CC', 'UH Hilo', 'UH Mānoa', 'UH Maui College', 'UH West O‘ahu']} />
                 <TextField name="major" />
                 <TextField name="minor" />
