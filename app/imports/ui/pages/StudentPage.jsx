@@ -49,9 +49,9 @@ const StudentPage = () => (
         <link rel="stylesheet" type="text/css" href="//loading.io/css/loading-btn.css" />
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <div className="button ld ld-ext-left">
-          <a href="http://google.com">
+          <a href="https://opportunityfinder.xyz/mysprofile">
             <div className="ld ld-ring ld-spin" />
-            <h5 style={{ color: 'white' }}>changeme</h5>
+            <h5 style={{ color: 'white' }}>My Profile</h5>
             <div />
             <i style={{ color: 'white' }} className="fa fa-arrow-right" />
           </a>
@@ -59,37 +59,6 @@ const StudentPage = () => (
       </Col>
     </Row>
 
-    <Row>
-      <Col className="d-flex flex-column justify-content-center">
-        <link rel="stylesheet" type="text/css" href="//loading.io/css/loading.css" />
-        <link rel="stylesheet" type="text/css" href="//loading.io/css/loading-btn.css" />
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <div className="button ld ld-ext-left">
-          <a href="http://google.com">
-            <div className="ld ld-ring ld-spin" />
-            <h5 style={{ color: 'white' }}>changeme</h5>
-            <div />
-            <i style={{ color: 'white' }} className="fa fa-arrow-right" />
-          </a>
-        </div>
-      </Col>
-    </Row>
-
-    <Row>
-      <Col className="d-flex flex-column justify-content-center">
-        <link rel="stylesheet" type="text/css" href="//loading.io/css/loading.css" />
-        <link rel="stylesheet" type="text/css" href="//loading.io/css/loading-btn.css" />
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <div className="button ld ld-ext-left">
-          <a href="http://google.com">
-            <div className="ld ld-ring ld-spin" />
-            <h5 style={{ color: 'white' }}>changeme</h5>
-            <div />
-            <i style={{ color: 'white' }} className="fa fa-arrow-right" />
-          </a>
-        </div>
-      </Col>
-    </Row>
   </Container>
 );
 

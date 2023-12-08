@@ -23,6 +23,10 @@ import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import AddCompanyProfile from '../pages/AddCompanyProfile';
 import EditCompanyProfile from '../pages/EditCompanyProfile';
+import ListStudent from '../pages/ListStudent';
+import MySProfile from '../pages/MySProfile';
+import ListCompany from '../pages/ListCompany';
+import MyCProfile from '../pages/MyCProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,6 +47,10 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/studentpage" element={<StudentPage />} />
           <Route path="/companypage" element={<CompanyPage />} />
+          <Route path="/liststudent" element={<ListStudent />} />
+          <Route path="/mysprofile" element={<MySProfile />} />
+          <Route path="/listcompany" element={<ListCompany />} />
+          <Route path="/mycprofile" element={<MyCProfile />} />
           <Route path="/addstudentprofile" element={<ProtectedRoute><AddStudentProfile /></ProtectedRoute>} />
           <Route path="/editstudentprofile" element={<ProtectedRoute><EditStudentProfile /></ProtectedRoute>} />
           <Route path="/addcompanyprofile" element={<ProtectedRoute><AddCompanyProfile /></ProtectedRoute>} />

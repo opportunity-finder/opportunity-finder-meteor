@@ -14,6 +14,7 @@ class StudentProfilesCollection {
     this.schema = new SimpleSchema({
       firstName: String,
       lastName: String,
+      image: String,
       studentID: Number,
       campus: String,
       campusCondition: {
