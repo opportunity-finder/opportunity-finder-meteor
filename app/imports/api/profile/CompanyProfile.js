@@ -14,6 +14,7 @@ class CompanyProfilesCollection {
     this.schema = new SimpleSchema({
       name: String,
       description: String,
+      image: String,
       island: {
         type: String,
         allowedValues: ['Hawai‘i', 'Kaua‘i', 'Lana‘i', 'Maui', 'Moloka‘i', 'O‘ahu'],

@@ -11,6 +11,7 @@ import { CompanyProfiles } from '../../api/profile/CompanyProfile.js';
 const formSchema = new SimpleSchema({
   name: String,
   description: String,
+  image: String,
   island: {
     type: String,
     allowedValues: ['Hawai‘i', 'Kaua‘i', 'Lana‘i', 'Maui', 'Moloka‘i', 'O‘ahu'],
@@ -28,9 +29,9 @@ const AddCompanyProfile = () => {
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const owner = Meteor.user().username;
-    const { name, description, island, city, address, zipCode } = data;
+    const { name, description, image, island, city, address, zipCode } = data;
     CompanyProfiles.collection.insert(
-      { name, description, island, city, address, zipCode, owner },
+      { name, description, image, island, city, address, zipCode, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -57,6 +58,7 @@ const AddCompanyProfile = () => {
               <Card.Body>
                 <TextField name="name" />
                 <LongTextField name="description" />
+                <TextField name="image" />
                 <SelectField name="island" allowedValues={['Hawai‘i', 'Kaua‘i', 'Lana‘i', 'Maui', 'Moloka‘i', 'O‘ahu']} />
                 <TextField name="city" />
                 <TextField name="address" />

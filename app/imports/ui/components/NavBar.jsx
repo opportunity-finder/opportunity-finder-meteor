@@ -40,15 +40,15 @@ const NavBar = () => {
           <Nav className="justify-content-end">
             <Nav.Link as={NavLink} to="/" key="home">Home</Nav.Link>
             {currentUser && (
-              <>
-                <Nav.Link as={NavLink} to="/mysprofile" key="asp">My Profile</Nav.Link>
-                <Nav.Link as={NavLink} to="/adminsearch" key="search">Search</Nav.Link>
-              </>
+              <Nav.Link as={NavLink} to="/adminsearch" key="search">Search</Nav.Link>
             )}
-            {Roles.userIsInRole(Meteor.userId(), 'student') && (
-              <Nav.Link as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>
-            )}
+            {Roles.userIsInRole(Meteor.userId(), 'student') && ([
+              <Nav.Link as={NavLink} to="/mysprofile" key="mys">My Profile</Nav.Link>,
+              <Nav.Link as={NavLink} to="/listcompany" key="lc">List Company</Nav.Link>,
+              <Nav.Link as={NavLink} to="/studentpage" key="sp">Student</Nav.Link>,
+            ])}
             {Roles.userIsInRole(Meteor.userId(), 'employer') && ([
+              <Nav.Link as={NavLink} to="/mycprofile" key="myc">My Profile</Nav.Link>,
               <Nav.Link as={NavLink} to="/liststudent" key="ls">List Student</Nav.Link>,
               <Nav.Link as={NavLink} to="/companypage" key="cp">Company</Nav.Link>,
             ])}
